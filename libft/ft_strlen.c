@@ -6,7 +6,7 @@
 /*   By: alegarci <alegarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/07 16:10:16 by alegarci          #+#    #+#             */
-/*   Updated: 2025/04/09 15:42:43 by alegarci         ###   ########.fr       */
+/*   Updated: 2025/04/09 17:36:11 by alegarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@ int	ft_strlen(const char *str)
 {
 	unsigned int	i;
 
-	while (str[i] != '\0')
+	i = 0;
+	while (str[i])
 		i++;
 	return (i);
 }

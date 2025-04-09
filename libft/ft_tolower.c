@@ -6,11 +6,11 @@
 /*   By: alegarci <alegarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/08 18:29:55 by alegarci          #+#    #+#             */
-/*   Updated: 2025/04/08 18:32:42 by alegarci         ###   ########.fr       */
+/*   Updated: 2025/04/09 17:37:16 by alegarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	ft_tolower(char c)
+int	ft_tolower(int c)
 {
 	if (c >= 'A' && c <= 'Z')
 		c = c + 32;

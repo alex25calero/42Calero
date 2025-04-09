@@ -1,5 +1,5 @@
 NAME = libft.a
-SRC = $(wildcard *.o)
+SRC = $(wildcard *.c)
 OBJ = $(SRC:.c=.o)
 
 COMPILER = cc
@@ -8,10 +8,10 @@ FLAGS = -Wall -Wextra -Werror
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	ar rcs $(NAME) $(OBJ)
+	ar rcs $@ $^
 
 %o: %.c
-	$(COMPILER) $(FLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
 	rm -f $(OBJ)

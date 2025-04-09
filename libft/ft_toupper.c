@@ -6,11 +6,11 @@
 /*   By: alegarci <alegarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/08 18:09:36 by alegarci          #+#    #+#             */
-/*   Updated: 2025/04/08 18:26:58 by alegarci         ###   ########.fr       */
+/*   Updated: 2025/04/09 17:37:22 by alegarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	ft_toupper(char c)
+int	ft_toupper(int c)
 {
 	if (c >= 'a' && c <= 'z')
 		c = c - 32;

@@ -6,7 +6,7 @@
 /*   By: alegarci <alegarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/08 13:45:20 by alegarci          #+#    #+#             */
-/*   Updated: 2025/04/08 17:55:02 by alegarci         ###   ########.fr       */
+/*   Updated: 2025/04/09 17:34:09 by alegarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@ int	ft_isalnum(char c)
 {
 	if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))
 		return (1);
-	else if (c >= '1' || c <= '9')
+	else if (c >= '0' && c <= '9')
 		return (1);
 	else
 		return (0);

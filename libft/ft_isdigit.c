@@ -6,14 +6,13 @@
 /*   By: alegarci <alegarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/08 13:39:27 by alegarci          #+#    #+#             */
-/*   Updated: 2025/04/09 12:27:15 by alegarci         ###   ########.fr       */
+/*   Updated: 2025/04/09 17:33:14 by alegarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isdigit(char c)
+int	ft_isdigit(int c)
 {
-	if (c >= '1' || c <= '9')
+	if (c >= '0' && c <= '9')
 		return (1);
-	else
-		return (0);
+	return (0);
 }
