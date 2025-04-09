@@ -2,7 +2,7 @@ NAME = libft.a
 SRC = $(wildcard *.o)
 OBJ = $(SRC:.c=.o)
 
-COMPILER = gcc
+COMPILER = cc
 FLAGS = -Wall -Wextra -Werror
 
 all: $(NAME)

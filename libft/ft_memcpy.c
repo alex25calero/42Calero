@@ -1,41 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alegarci <alegarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/09 13:39:29 by alegarci          #+#    #+#             */
-/*   Updated: 2025/04/09 15:30:36 by alegarci         ###   ########.fr       */
+/*   Created: 2025/04/09 15:44:55 by alegarci          #+#    #+#             */
+/*   Updated: 2025/04/09 16:40:02 by alegarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	*ft_bzero(void *s, unsigned int n)
-{
-	unsigned int	i;
-	unsigned char	*ptr;
+#include "libft.h"
 
-	ptr = (unsigned char *)s;
+void	*ft_memcpy(void *dest, const void *src, size_t n)
+{
+	size_t				i;
+	unsigned char		*d;
+	const unsigned char	*s;
+
 	i = 0;
+	d = (unsigned char *)dest;
+	s = (const unsigned char *)src;
 	while (i < n)
 	{
-		ptr[i] = '\0';
+		d[i] = s[i];
 		i++;
 	}
-	return (s);
+	return (dest);
 }
 /*
-#include <stdio.h> 
-int main(void)
-{
-    char str[10] = "Hello!";
+#include <stdio.h>
+int main() {
+    char src[] = "Hola Mundo";
+    char dest[20];
 
-    printf("Antes de ft_bzero: %s\n", str);
-
-    // Llamamos a ft_bzero para poner a cero los primeros 5 bytes
-    ft_bzero(str, 5);
-
-    printf("Después de ft_bzero: %s\n", str);  // Debería mostrar un string vacío
-
+    ft_memcpy(dest, src, 10);
+    dest[10] = '\0';
+    printf("Destino: %s\n", dest);
     return 0;
 }*/

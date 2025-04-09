@@ -6,13 +6,13 @@
 /*   By: alegarci <alegarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/07 16:42:22 by alegarci          #+#    #+#             */
-/*   Updated: 2025/04/08 16:07:41 by alegarci         ###   ########.fr       */
+/*   Updated: 2025/04/09 15:43:37 by alegarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-int	ft_atoi(char *str)
+int	ft_atoi(const char *str)
 {
 	int				i;
 	unsigned int	result;
@@ -38,8 +38,6 @@ int	ft_atoi(char *str)
 }
 /*
 #include <stdio.h>
-
-int	ft_atoi(char *str);
 
 int	main(void)
 {
