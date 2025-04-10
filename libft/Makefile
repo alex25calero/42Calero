@@ -1,5 +1,6 @@
 NAME = libft.a
-SRC = $(wildcard *.c)
+SRC = $(wildcard *.c)  
+#QUITAR EL WILDCARD
 OBJ = $(SRC:.c=.o)
 
 COMPILER = cc

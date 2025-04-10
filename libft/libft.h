@@ -6,7 +6,7 @@
 /*   By: alegarci <alegarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 12:18:55 by alegarci          #+#    #+#             */
-/*   Updated: 2025/04/09 17:51:37 by alegarci         ###   ########.fr       */
+/*   Updated: 2025/04/10 11:23:51 by alegarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,7 @@ void	*ft_memcpy(void *dest, const void *src, size_t n);
 void	*ft_bzero(void *s, unsigned int n);
 char	*ft_strchr(const char *str, int c);
 char	*ft_strrchr(const char *str, int c);
+size_t	ft_strlcpy(char *dest, const char *src, size_t s);
+size_t	ft_strlcat (char *dest, const char *src, size_t s);
 
 #endif

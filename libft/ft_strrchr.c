@@ -6,7 +6,7 @@
 /*   By: alegarci <alegarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 11:43:59 by alegarci          #+#    #+#             */
-/*   Updated: 2025/04/09 11:59:56 by alegarci         ###   ########.fr       */
+/*   Updated: 2025/04/10 09:58:55 by alegarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ char	*ft_strrchr(const char *str, int c)
 	int	i;
 
 	i = ft_strlen((char *)str);
-	while (str[i] >= 0)
+	while (i >= 0)
 	{
 		if (str[i] == (char)c)
 			return ((char *)&str[i]);
