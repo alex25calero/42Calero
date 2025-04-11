@@ -6,7 +6,7 @@
 /*   By: alegarci <alegarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/10 16:14:59 by alegarci          #+#    #+#             */
-/*   Updated: 2025/04/11 10:38:08 by alegarci         ###   ########.fr       */
+/*   Updated: 2025/04/11 12:21:55 by alegarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ void	*ft_calloc(size_t nmem, size_t s)
 
 	res2 = (unsigned int)nmem * (unsigned int)s;
 	res = malloc(nmem * s);
-	res = ft_bzero(res, res2);
+	if (!res)
+		return (NULL);
+	ft_bzero(res, res2);
 	return (res);
 }
