@@ -6,7 +6,7 @@
 /*   By: alegarci <alegarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 12:18:55 by alegarci          #+#    #+#             */
-/*   Updated: 2025/04/11 15:53:34 by alegarci         ###   ########.fr       */
+/*   Updated: 2025/04/11 17:23:07 by alegarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ char	*ft_strrchr(const char *str, int c);
 char	*ft_strnstr(const char *str, const char *sch, size_t len);
 char	*ft_strdup(const char *str);
 char	*ft_substr(char const *str, unsigned int start, size_t len);
+char	*ft_strjoin(char const *s1, char const *s2);
 size_t	ft_strlen(const char *str);
 size_t	ft_strlcpy(char *dest, const char *src, size_t s);
 size_t	ft_strlcat(char *dest, const char *src, size_t s);

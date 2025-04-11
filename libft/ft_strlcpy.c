@@ -6,7 +6,7 @@
 /*   By: alegarci <alegarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 17:52:01 by alegarci          #+#    #+#             */
-/*   Updated: 2025/04/10 09:57:06 by alegarci         ###   ########.fr       */
+/*   Updated: 2025/04/11 17:05:55 by alegarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,6 @@ size_t	ft_strlcpy(char *dest, const char *src, size_t s)
 			j++;
 		return (j);
 	}
-	if (!src || !dest)
-		return (0);
 	i = 0;
 	while (i < s - 1 && src[i])
 	{
