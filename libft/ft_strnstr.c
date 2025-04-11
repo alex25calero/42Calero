@@ -1,19 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alegarci <alegarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/08 13:13:15 by alegarci          #+#    #+#             */
-/*   Updated: 2025/04/10 12:34:33 by alegarci         ###   ########.fr       */
+/*   Created: 2025/04/10 15:56:43 by alegarci          #+#    #+#             */
+/*   Updated: 2025/04/11 10:52:35 by alegarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isalpha(char c)
+#include "libft.h"
+
+char	*ft_strnstr(const char *str, const char *sch, size_t len)
 {
-	if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))
-		return (1);
-	else
-		return (0);
+	size_t			i;
+	size_t			j;
+	unsigned char	*aux;
+
+	if (len == 0)
+		return (NULL);
+	if (!sch)
+		return ((char *)str);
+	aux = (unsigned char *)str;
+	i = 0;
+	while (str[i])
+	{
+		j = 0;
+		while (str[i + j] == sch[j] && sch[j] && str[i + j] && (i + j) < len)
+			j++;
+		if (sch[j] == '\0')
+			return (aux + i);
+		i++;
+	}
 }
