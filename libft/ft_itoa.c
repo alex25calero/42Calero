@@ -6,13 +6,13 @@
 /*   By: alegarci <alegarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 12:05:12 by alegarci          #+#    #+#             */
-/*   Updated: 2025/04/14 13:10:38 by alegarci         ###   ########.fr       */
+/*   Updated: 2025/04/14 16:58:08 by alegarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t ft_ilen(int n)
+size_t	ft_ilen(int n)
 {
 	size_t	ilen;
 
@@ -27,11 +27,11 @@ size_t ft_ilen(int n)
 	return (ilen);
 }
 
-char *ft_itoa(int n)
+char	*ft_itoa(int n)
 {
 	char	*res;
 	long	nb;
-	size_t 	len;
+	size_t	len;
 
 	len = ft_ilen(n);
 	res = (char *)ft_calloc(len + 1, sizeof(char));
@@ -50,7 +50,7 @@ char *ft_itoa(int n)
 		res[--len] = (nb % 10) + '0';
 		nb = nb / 10;
 	}
-	return (res);	
+	return (res);
 }
 /*
 #include <stdio.h>
