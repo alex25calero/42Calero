@@ -6,7 +6,7 @@
 /*   By: alegarci <alegarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 12:18:55 by alegarci          #+#    #+#             */
-/*   Updated: 2025/04/14 17:42:11 by alegarci         ###   ########.fr       */
+/*   Updated: 2025/04/15 13:09:29 by alegarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_strtrim(char const *s1, char const *set);
 char	*ft_itoa(int n);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
+char	**ft_split(char const *s, char limit);
 size_t	ft_strlen(const char *str);
 size_t	ft_strlcpy(char *dest, const char *src, size_t s);
 size_t	ft_strlcat(char *dest, const char *src, size_t s);
