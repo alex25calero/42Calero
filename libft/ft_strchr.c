@@ -6,7 +6,7 @@
 /*   By: alegarci <alegarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/08 18:36:59 by alegarci          #+#    #+#             */
-/*   Updated: 2025/04/15 19:08:59 by alegarci         ###   ########.fr       */
+/*   Updated: 2025/04/15 19:12:04 by alegarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ char	*ft_strchr(const char *str, int c)
 	}
 	if ((char)c == '\0')
 		return ((char *)&str[i]);
-	return ('\0');
+	return (0);
 }
 /*
 #include <stdio.h>
