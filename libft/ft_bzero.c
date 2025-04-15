@@ -6,11 +6,11 @@
 /*   By: alegarci <alegarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 13:39:29 by alegarci          #+#    #+#             */
-/*   Updated: 2025/04/11 12:20:02 by alegarci         ###   ########.fr       */
+/*   Updated: 2025/04/15 18:10:15 by alegarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	*ft_bzero(void *s, unsigned int n)
+void	ft_bzero(void *s, unsigned int n)
 {
 	unsigned int	i;
 	unsigned char	*ptr;

@@ -6,7 +6,7 @@
 /*   By: alegarci <alegarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/15 11:00:36 by alegarci          #+#    #+#             */
-/*   Updated: 2025/04/15 13:18:38 by alegarci         ###   ########.fr       */
+/*   Updated: 2025/04/15 17:47:03 by alegarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ char	**ft_split(char const *s, char limit)
 
 int	main(void)
 {
-	const char *str = "Hola  mundo  cruel";
+	const char *str = "     Ho    la      mundo     cruel";
 	char limit = ' ';
 	char **words = ft_split(str, limit);
 
