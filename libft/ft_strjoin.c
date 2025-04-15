@@ -6,7 +6,7 @@
 /*   By: alegarci <alegarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/11 16:01:55 by alegarci          #+#    #+#             */
-/*   Updated: 2025/04/11 23:30:08 by alegarci         ###   ########.fr       */
+/*   Updated: 2025/04/15 15:34:40 by alegarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 
 	i = 0;
 	j = 0;
+	if (!s1 || !s2)
+		return (NULL);
 	totlen = ft_strlen(s1) + ft_strlen(s2) + 1;
 	res = malloc(totlen * sizeof(char));
 	if (!res)
