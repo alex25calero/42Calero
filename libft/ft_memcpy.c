@@ -6,7 +6,7 @@
 /*   By: alegarci <alegarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 15:44:55 by alegarci          #+#    #+#             */
-/*   Updated: 2025/04/09 16:55:21 by alegarci         ###   ########.fr       */
+/*   Updated: 2025/04/15 19:29:40 by alegarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,13 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
 	size_t				i;
 	unsigned char		*d;
-	const unsigned char	*s;
+	unsigned char		*s;
 
+	if (!dest && !src)
+		return (NULL);
 	i = 0;
 	d = (unsigned char *)dest;
-	s = (const unsigned char *)src;
+	s = (unsigned char *)src;
 	while (i < n)
 	{
 		d[i] = s[i];
