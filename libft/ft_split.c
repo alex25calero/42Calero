@@ -6,13 +6,13 @@
 /*   By: alegarci <alegarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/15 11:00:36 by alegarci          #+#    #+#             */
-/*   Updated: 2025/04/15 17:47:03 by alegarci         ###   ########.fr       */
+/*   Updated: 2025/04/15 19:05:54 by alegarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	count_words(char const *s, char limit)
+static size_t	count_words(char const *s, char limit)
 {
 	size_t	i;
 	size_t	words;
@@ -28,7 +28,7 @@ size_t	count_words(char const *s, char limit)
 	return (words);
 }
 
-size_t	count_letters(char const *s, char limit, size_t start)
+static size_t	count_letters(char const *s, char limit, size_t start)
 {
 	size_t	len;
 
@@ -38,14 +38,14 @@ size_t	count_letters(char const *s, char limit, size_t start)
 	return (len);
 }
 
-void	free_split(char **res, size_t j)
+static void	free_split(char **res, size_t j)
 {
 	while (j--)
 		free(res[j]);
 	free(res);
 }
 
-char	**fill_split(char const *s, char limit, char **res)
+static char	**fill_split(char const *s, char limit, char **res)
 {
 	size_t	i;
 	size_t	j;

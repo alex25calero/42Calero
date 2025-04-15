@@ -6,9 +6,11 @@
 /*   By: alegarci <alegarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/08 18:29:55 by alegarci          #+#    #+#             */
-/*   Updated: 2025/04/09 17:37:16 by alegarci         ###   ########.fr       */
+/*   Updated: 2025/04/15 19:10:01 by alegarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 int	ft_tolower(int c)
 {

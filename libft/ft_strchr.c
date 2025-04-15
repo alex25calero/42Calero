@@ -6,9 +6,11 @@
 /*   By: alegarci <alegarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/08 18:36:59 by alegarci          #+#    #+#             */
-/*   Updated: 2025/04/09 11:57:44 by alegarci         ###   ########.fr       */
+/*   Updated: 2025/04/15 19:08:59 by alegarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 char	*ft_strchr(const char *str, int c)
 {

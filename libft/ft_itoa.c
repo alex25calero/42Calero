@@ -6,13 +6,13 @@
 /*   By: alegarci <alegarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 12:05:12 by alegarci          #+#    #+#             */
-/*   Updated: 2025/04/14 16:58:08 by alegarci         ###   ########.fr       */
+/*   Updated: 2025/04/15 19:07:55 by alegarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_ilen(int n)
+static size_t	ft_ilen(int n)
 {
 	size_t	ilen;
 

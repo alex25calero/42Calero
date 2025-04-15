@@ -6,9 +6,11 @@
 /*   By: alegarci <alegarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/08 13:39:27 by alegarci          #+#    #+#             */
-/*   Updated: 2025/04/09 17:33:14 by alegarci         ###   ########.fr       */
+/*   Updated: 2025/04/15 19:07:45 by alegarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 int	ft_isdigit(int c)
 {

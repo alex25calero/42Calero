@@ -6,19 +6,11 @@
 /*   By: alegarci <alegarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 11:43:59 by alegarci          #+#    #+#             */
-/*   Updated: 2025/04/10 09:58:55 by alegarci         ###   ########.fr       */
+/*   Updated: 2025/04/15 19:05:01 by alegarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strlen(char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i] != '\0')
-		i++;
-	return (i);
-}
+#include "libft.h"
 
 char	*ft_strrchr(const char *str, int c)
 {
@@ -33,7 +25,7 @@ char	*ft_strrchr(const char *str, int c)
 	}
 	if ((char)c == '\0')
 		return ((char *)&str[i]);
-	return ('\0');
+	return (0);
 }
 /*
 #include <stdio.h>

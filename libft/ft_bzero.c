@@ -6,9 +6,11 @@
 /*   By: alegarci <alegarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 13:39:29 by alegarci          #+#    #+#             */
-/*   Updated: 2025/04/15 18:10:15 by alegarci         ###   ########.fr       */
+/*   Updated: 2025/04/15 19:06:30 by alegarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 void	ft_bzero(void *s, unsigned int n)
 {
