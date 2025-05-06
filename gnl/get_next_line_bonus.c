@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alegarci <alegarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/25 13:17:35 by alegarci          #+#    #+#             */
-/*   Updated: 2025/05/06 17:29:29 by alegarci         ###   ########.fr       */
+/*   Updated: 2025/05/06 17:42:34 by alegarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 char	*extract_line(char *backup)
 {
@@ -92,16 +92,16 @@ char	*read_to_backup(int fd, char *backup)
 
 char	*get_next_line(int fd)
 {
-	static char	*backup;
+	static char	backup[MAX_OPEN_FILES];
 	char		*line;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
-	backup = read_to_backup(fd, backup);
-	if (!backup || backup[0] == '\0')
-		return (free(backup), backup = NULL, NULL);
-	line = extract_line(backup);
-	backup = update_backup(backup);
+	backup[fd] = read_to_backup(fd, backup[fd]);
+	if (!backup[fd] || backup[0] == '\0')
+		return (free(backup[fd]), backup[fd] = NULL, NULL);
+	line = extract_line(backup[fd]);
+	backup[fd] = update_backup(backup[fd]);
 	if (!line || line[0] == '\0')
 		return (free (line), NULL);
 	return (line);
