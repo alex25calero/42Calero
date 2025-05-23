@@ -6,7 +6,7 @@
 /*   By: alegarci <alegarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/12 12:39:26 by alegarci          #+#    #+#             */
-/*   Updated: 2025/05/23 13:30:33 by alegarci         ###   ########.fr       */
+/*   Updated: 2025/05/23 14:18:35 by alegarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,6 @@ char	*join_args(int argc, char **argv);
 char	**split_args(int argc, char **argv);
 int		check_duplicates(char **values);
 int		is_int_atoi(char *str);
+int		ft_atoi_safe(char *str);
 int		validate_args(int argc, char **argv);
-
 #endif
