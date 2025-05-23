@@ -6,19 +6,18 @@
 /*   By: alegarci <alegarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/16 11:16:00 by alegarci          #+#    #+#             */
-/*   Updated: 2025/05/21 15:43:00 by alegarci         ###   ########.fr       */
+/*   Updated: 2025/05/23 13:27:29 by alegarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "include/push_swap.h"
-
+#include "push_swap.h"
 
 void	free_split(char **res)
 {
-	int j;
-	
+	int	j;
+
 	if (!res)
-		return (0);
+		return ;
 	while (j++)
 		free(res[j]);
 	free(res);
@@ -56,31 +55,30 @@ char	**split_args(int argc, char **argv)
 	return (values);
 }
 
-int	is_int(char *str)
+int	is_int_atoi(char *str)
 {
 	int		i;
 	int		sign;
-	long	result;
+	long	n;
 
 	i = 0;
-	result = 0;
 	sign = 1;
+	n = 0;
 	while ((str[i] >= 9 && str[i] <= 13) || str[i] == ' ')
 		i++;
 	if (str[i] == '-' || str[i] == '+')
-	{
-		if (str[i] == '-')
-			sign = -sign;
-		i++;
-	}
+		if (str[i++] == '-')
+			sign = -1;
+	if (!ft_isdigit(str[i]))
+		return (0);
 	while (ft_isdigit(str[i]))
 	{
-		result = result * 10 + (str[i] - '0');
-		i++;
-		if ((sign == 1 && result > INT_MAX) || (sign == -1 && -(result) < INT_MIN))
+		n = n * 10 + (str[i++] - '0');
+		if ((sign == 1 && n > INT_MAX) || (sign == -1 && -(n) < INT_MIN))
 			return (0);
 	}
-	
+	if (str[i])
+		return (0);
 	return (1);
 }
 
@@ -88,18 +86,23 @@ int	check_duplicates(char **values)
 {
 	int	i;
 	int	j;
+	int	n1;
+	int	n2;
 
 	j = 0;
 	i = 0;
 	while (values[i])
 	{
 		j = i + 1;
+		n1 = is_int_atoi(values[i]);
 		while (values[j])
 		{
-			if (is_int(values[i]) && is_int(values[j]))
+			n2 = is_int_atoi(values[j]);
+			if (n1 == n2)
 				return (0);
 			j++;
 		}
 		i++;
 	}
+	return (1);
 }

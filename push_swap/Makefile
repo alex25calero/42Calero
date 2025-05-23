@@ -1,39 +1,44 @@
-NAME = pushswap
-SRC =	push_swap.c \
-		src/ft_push.c \
-		src/ft_reverse.c \
-		src/ft_rotate.c \
-		src/ft_swap \
+NAME = push_swap
 
-SRCOBJ = $(SRC:.c=.o)
-LIB_DIR = libft
-LIBFT = $(LIB_DIR)/libft.a
+# Archivos fuente
+SRC = main.c \
+	  push_swap.c \
+	  push_swap_utils.c \
+	  src/ft_push.c \
+	  src/ft_reverse.c \
+	  src/ft_rotate.c \
+	  src/ft_swap.c \
 
-CC = cc
-CFLAGS = -Wall -Werror -Wextra
+LIBFT_DIR = ./libft
+LIBFT = $(LIBFT_DIR)/libft.a
 
+INCLUDE = ./push_swap.h
+
+OBJ = $(SRC:.c=.o)
+
+CC = gcc
+CFLAGS = -Wall -Wextra -Werror
+INCLUDES = -I./include -I$(LIBFT_DIR)
+
+# Comando por defecto
 all: $(NAME)
 
-$(NAME): $(LIBFT)(OBJS)
-	cp $(LIBFT), 
-	mv libft.a $(NAME)
+$(NAME): $(OBJ) $(LIBFT)
+	$(CC) $(CFLAGS) $(OBJ) $(LIBFT) -o $(NAME)
 
 $(LIBFT):
-	$(MAKE) -C $(LIB_DIR)
-
-$(NAME): $(SRCOBJ)
-	$(NAME) $(SRCOBJ)
+	make -C $(LIBFT_DIR)
 
 %.o: %.c
-	$(CC) $(CFLAGS) -I. -I$(LIB_DIR) -c $< -o $@
+	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
 clean:
-	$(MAKE) -C $(LIB_DIR) clean
-	rm -f $(SRCOBJ)
+	rm -f $(OBJ)
+	make -C $(LIBFT_DIR) clean
 
 fclean: clean
-	$(MAKE) -C $(LIB_DIR) fclean
 	rm -f $(NAME)
+	make -C $(LIBFT_DIR) fclean
 
 re: fclean all
 

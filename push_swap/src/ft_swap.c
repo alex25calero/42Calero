@@ -6,11 +6,11 @@
 /*   By: alegarci <alegarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 11:01:48 by alegarci          #+#    #+#             */
-/*   Updated: 2025/05/13 12:59:50 by alegarci         ###   ########.fr       */
+/*   Updated: 2025/05/23 12:33:26 by alegarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "include/push_swap.h"
+#include "../push_swap.h"
 
 void	ft_sa(t_stack **a)
 {

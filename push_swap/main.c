@@ -1,39 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_push.c                                          :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alegarci <alegarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/13 11:02:46 by alegarci          #+#    #+#             */
-/*   Updated: 2025/05/23 13:31:30 by alegarci         ###   ########.fr       */
+/*   Created: 2025/05/23 12:26:35 by alegarci          #+#    #+#             */
+/*   Updated: 2025/05/23 13:33:36 by alegarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap.h"
 
-void	ft_pa(t_stack **a, t_stack **b)
+int	main(int argc, char **argv)
 {
-	t_stack	*first;
-
-	if (!b || !*b)
-		return ;
-	first = *b;
-	*b = (*b)->next;
-	first->next = *a;
-	*a = first;
-	write (1, "pa\n", 3);
-}
-
-void	ft_pb(t_stack **a, t_stack **b)
-{
-	t_stack	*first;
-
-	if (!a || !*a)
-		return ;
-	first = *a;
-	*a = (*a)->next;
-	first->next = *b;
-	*b = first;
-	write (1, "pb\n", 3);
+	if (argc < 2)
+	{
+		write(2, "No args provided\n", 17);
+		return (1);
+	}
+	if (!validate_args(argc, argv))
+		return (1);
+	write(1, "Arguments OK\n", 13);
+	return (0);
 }

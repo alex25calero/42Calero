@@ -6,11 +6,11 @@
 /*   By: alegarci <alegarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 11:02:49 by alegarci          #+#    #+#             */
-/*   Updated: 2025/05/13 13:31:34 by alegarci         ###   ########.fr       */
+/*   Updated: 2025/05/23 13:32:15 by alegarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "include/push_swap.h"
+#include "../push_swap.h"
 
 void	ft_ra(t_stack **a)
 {
@@ -28,11 +28,11 @@ void	ft_ra(t_stack **a)
 	first->next = NULL;
 	write (1, "ra\n", 3);
 }
+
 void	ft_rb(t_stack **b)
 {
 	t_stack	*first;
 	t_stack	*last;
-
 
 	if (!b || !*b || !(*b)->next)
 		return ;
@@ -62,6 +62,7 @@ void	ft_rr(t_stack **a, t_stack **b)
 		first->next = NULL;
 	}
 	if (b && *b && (*b)->next)
+	{
 		first = *b;
 		*b = (*b)->next;
 		last = *b;
@@ -70,4 +71,5 @@ void	ft_rr(t_stack **a, t_stack **b)
 		last->next = first;
 		first->next = NULL;
 		write (1, "rr\n", 3);
+	}
 }
