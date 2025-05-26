@@ -6,13 +6,13 @@
 /*   By: alegarci <alegarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 12:26:35 by alegarci          #+#    #+#             */
-/*   Updated: 2025/05/23 14:04:48 by alegarci         ###   ########.fr       */
+/*   Updated: 2025/05/25 18:24:24 by alegarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int main(int argc, char **argv)
+/* int main(int argc, char **argv)
 {
     if (argc < 2)
     {
@@ -20,7 +20,7 @@ int main(int argc, char **argv)
         return 1;
     }
 
-    printf("Argumentos recibidos:\n");
+     printf("Argumentos recibidos:\n");
     for (int i = 1; i < argc; i++)
         printf("argv[%d]: '%s'\n", i, argv[i]);
 
@@ -33,14 +33,14 @@ int main(int argc, char **argv)
     printf("Todos los argumentos son válidos y sin duplicados\n");
 
     // Mostrar los tokens separados
-    char **tokens = split_args(argc - 1, argv + 1);
+     char **tokens = split_args(argc - 1, argv + 1);
     if (!tokens)
     {
         write(1, "Error en split_args\n", 19);
-        return 1;
+        return 1; 
     }
 
-    printf("Tokens separados:\n");
+ 	 printf("Tokens separados:\n");
     int i = 0;
     while (tokens[i])
     {
@@ -49,5 +49,30 @@ int main(int argc, char **argv)
     }
 
     free_split(tokens);
+    return 0; 
+}
+ */
+
+ int main(int argc, char **argv)
+{
+    char **value;
+	value = split_args(argc - 1, argv + 1);
+
+    t_stack *list = create_list_from_values(value);
+    if (!list)
+    {
+        printf("Error creando la lista\n");
+        return 1;
+    }
+
+    // Recorrer la lista e imprimir valores
+    t_stack *tmp = list;
+    while (tmp)
+    {
+        printf("Valor nodo: %d\n", tmp->value);
+        tmp = tmp->next;
+    }
+
+    lst_clear(&list); // libera toda la lista
     return 0;
 }
