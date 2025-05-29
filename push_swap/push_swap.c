@@ -6,37 +6,48 @@
 /*   By: alegarci <alegarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/12 12:48:34 by alegarci          #+#    #+#             */
-/*   Updated: 2025/05/23 15:42:37 by alegarci         ###   ########.fr       */
+/*   Updated: 2025/05/28 13:54:43 by alegarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int validate_args(int argc, char **argv)
+/* void	create_stack(char **values, t_stack *a)
 {
-	char **values;
-	int i;
+	int i = 0;
+	while (values[i])
+	{
+		a->value = ft_atoi_safe(values[i]);
+		a = a->next;
+		i++;
+	}
+} */
 
-	values = split_args(argc, argv);
+/* void manage_error(t_stack *a, t_stack *b)
+{
+	ft_putstr_fd("Error:\n", 2);
+	free(a);
+	free(b);
+	exit(1);
+} */
+
+char	**validate_args(int argc, char **argv)
+{
+	char	**values;
+	int		i;
+
+	values = split_args(argc - 1, argv + 1);
 	i = 0;
 	if (!values)
-		return (write(1, "Error\n", 6), 0);
+		return (write(1, "Error\n", 6), NULL);
 	i = 0;
 	while (values[i])
 	{
 		if (!is_int_atoi(values[i]))
-		{
-			free_split(values);
-			return (write(1, "Error\n", 6), 0);
-		}
+			return (free_split(values), write(2, "Error\n", 6), NULL);
 		i++;
 	}
 	if (!check_duplicates(values))
-	{
-		free_split(values);
-		return (write(1, "Error\n", 6), 0);
-	}
-	free_split(values);
-	return (1);
+		return (free_split(values), write(2, "Error\n", 6), NULL);
+	return (values);
 }
-

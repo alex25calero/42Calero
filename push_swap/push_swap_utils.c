@@ -5,70 +5,22 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: alegarci <alegarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/16 11:16:00 by alegarci          #+#    #+#             */
-/*   Updated: 2025/05/23 14:17:23 by alegarci         ###   ########.fr       */
+/*   Created: 2025/05/23 13:54:05 by alegarci          #+#    #+#             */
+/*   Updated: 2025/05/28 13:57:14 by alegarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	free_split(char **res)
+int	ft_atoi_safe(char *str)
 {
-	int	j;
-
-	j = 0;
-	if (!res)
-		return ;
-	while (j++)
-		free(res[j]);
-	free(res);
-}
-
-char *join_args(int argc, char **argv)
-{
-	int i;
-	char *joined;
-	char *tmp;
+	int		i;
+	int		sign;
+	long	n;
 
 	i = 0;
-	joined = ft_strdup("");
-	while (i < argc)
-	{
-		tmp = ft_strjoin(joined, argv[i]);
-		free(joined);
-		joined = tmp;
-
-		if (i < argc - 1)
-		{
-			tmp = ft_strjoin(joined, " ");
-			free(joined);
-			joined = tmp;
-		}
-		i++;
-	}
-	return (joined);
-}
-
-
-char	**split_args(int argc, char **argv)
-{
-	char	*joined;
-	char	**values;
-
-	joined = join_args(argc, argv);
-	if (!joined)
-		return (NULL);
-	values = ft_split(joined, ' ');
-	free(joined);
-	return (values);
-}
-
-int is_int_atoi(char *str)
-{
-	int		i = 0;
-	int		sign = 1;
-	long	n = 0;
-
+	sign = 1;
+	n = 0;
 	while ((str[i] >= 9 && str[i] <= 13) || str[i] == ' ')
 		i++;
 	if (str[i] == '-' || str[i] == '+')
@@ -77,42 +29,79 @@ int is_int_atoi(char *str)
 			sign = -1;
 		i++;
 	}
-	if (!ft_isdigit(str[i]))
-		return (0);
 	while (ft_isdigit(str[i]))
 	{
 		n = n * 10 + (str[i++] - '0');
-		if ((sign == 1 && n > INT_MAX) || (sign == -1 && -(n) < INT_MIN))
-			return (0);
 	}
-	while ((str[i] >= 9 && str[i] <= 13) || str[i] == ' ')
-		i++;
-	if (str[i] != '\0')
-		return (0);
-	return (1);
+	return ((int)(n * sign));
 }
 
-
-int check_duplicates(char **values)
+t_stack	*lst_new(int value)
 {
-	int i, j;
-	int n1, n2;
+	t_stack	*node;
 
-	i = 0;
-	while (values[i])
-	{
-		n1 = ft_atoi_safe(values[i]);
-		j = i + 1;
-		while (values[j])
-		{
-			n2 = ft_atoi_safe(values[j]);
-			if (n1 == n2)
-				return (0);
-			j++;
-		}
-		i++;
-	}
-	return (1);
+	node = malloc(sizeof(t_stack));
+	if (!node)
+		return (NULL);
+	node->value = value;
+	node->next = NULL;
+	return (node);
 }
 
+void	lst_addback(t_stack **lst, t_stack *new_node)
+{
+	t_stack	*temp;
 
+	if (!lst || !new_node)
+		return ;
+	if (*lst == NULL)
+	{
+		*lst = new_node;
+		return ;
+	}
+	temp = *lst;
+	while (temp->next)
+		temp = temp->next;
+	temp->next = new_node;
+}
+
+void	clear_stack(t_stack **lst)
+{
+	t_stack	*tmp;
+
+	if (!lst)
+		return ;
+	while (*lst)
+	{
+		tmp = (*lst)->next;
+		free(*lst);
+		*lst = tmp;
+	}
+}
+
+t_stack	*create_stack(int argc, char **argv)
+{
+	t_stack	*a;
+	t_stack	*new_node;
+	int		i;
+	int		num;
+	char	**v;
+
+	a = NULL;
+	i = 0;
+	v = validate_args(argc, argv);
+	if (!v)
+		return (NULL);
+	while (v[i])
+	{
+		num = ft_atoi_safe(v[i]);
+		new_node = lst_new(num);
+		if (!new_node)
+			return (free_split(v), clear_stack(&a), NULL);
+		new_node->index = i - 1;
+		lst_addback(&a, new_node);
+		i++;
+	}
+	free_split(v);
+	return (a);
+}

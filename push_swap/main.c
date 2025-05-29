@@ -6,73 +6,63 @@
 /*   By: alegarci <alegarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 12:26:35 by alegarci          #+#    #+#             */
-/*   Updated: 2025/05/25 18:24:24 by alegarci         ###   ########.fr       */
+/*   Updated: 2025/05/28 14:03:39 by alegarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-/* int main(int argc, char **argv)
+void	print_stack(t_stack *stack)
 {
-    if (argc < 2)
-    {
-        write(1, "Error: falta argumento\n", 23);
-        return 1;
-    }
+	int	i;
 
-     printf("Argumentos recibidos:\n");
-    for (int i = 1; i < argc; i++)
-        printf("argv[%d]: '%s'\n", i, argv[i]);
-
-    if (!validate_args(argc - 1, argv + 1))
-    {
-        write(1, "Validacion fallida\n", 19);
-        return 1;
-    }
-
-    printf("Todos los argumentos son válidos y sin duplicados\n");
-
-    // Mostrar los tokens separados
-     char **tokens = split_args(argc - 1, argv + 1);
-    if (!tokens)
-    {
-        write(1, "Error en split_args\n", 19);
-        return 1; 
-    }
-
- 	 printf("Tokens separados:\n");
-    int i = 0;
-    while (tokens[i])
-    {
-        printf("Token[%d]: '%s'\n", i, tokens[i]);
-        i++;
-    }
-
-    free_split(tokens);
-    return 0; 
+	i = 0;
+	while (stack)
+	{
+		printf("Node[%d]: %d\n", i, stack->value);
+		// printf("index[%d]: %d\n", i, stack->index);
+		stack = stack->next;
+		i++;
+	}
 }
- */
 
- int main(int argc, char **argv)
+static void	ft_sort(t_stack **a, t_stack **b)
 {
-    char **value;
-	value = split_args(argc - 1, argv + 1);
+	int	len;
 
-    t_stack *list = create_list_from_values(value);
-    if (!list)
-    {
-        printf("Error creando la lista\n");
-        return 1;
-    }
+	len = ft_list_size(*a);
+	if (is_sorted(*a) == 1)
+		return ;
+	else if (len == 1)
+		return ;
+	else if (len == 2)
+		sort_two(a);
+	else if (len == 3)
+		sort_three(a);
+	else if (len == 4)
+		sort_four(a, b);
+	else if (len == 5)
+		sort_five(a, b);
+	/* else
+		ft_sort_big_list(a, b); */
+	else
+		return ;
+}
 
-    // Recorrer la lista e imprimir valores
-    t_stack *tmp = list;
-    while (tmp)
-    {
-        printf("Valor nodo: %d\n", tmp->value);
-        tmp = tmp->next;
-    }
+int	main(int argc, char **argv)
+{
+	t_stack	*a;
+	t_stack	*b;
 
-    lst_clear(&list); // libera toda la lista
-    return 0;
+	a = NULL;
+	b = NULL;
+	if (argc < 2)
+		return (0);
+	a = create_stack(argc, argv);
+	if (!a)
+		return (1);
+	ft_sort(&a, &b);
+	clear_stack(&a);
+	clear_stack(&b);
+	return (0);
 }

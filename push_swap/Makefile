@@ -4,7 +4,10 @@ NAME = push_swap
 SRC = main.c \
 	  push_swap.c \
 	  push_swap_utils.c \
-	  push_swap_utils_2.c \
+	  parser.c \
+	  sort_small.c \
+	  sort_big.c \
+	  sort_utils.c \
 	  src/ft_push.c \
 	  src/ft_reverse.c \
 	  src/ft_rotate.c \

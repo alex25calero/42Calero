@@ -6,7 +6,7 @@
 /*   By: alegarci <alegarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 11:02:44 by alegarci          #+#    #+#             */
-/*   Updated: 2025/05/23 13:32:01 by alegarci         ###   ########.fr       */
+/*   Updated: 2025/05/27 23:55:36 by alegarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	ft_rra(t_stack **a)
 	prev->next = NULL;
 	last->next = *a;
 	*a = last;
-	write (1, "rra\n", 3);
+	write (1, "rra\n", 4);
 }
 
 void	ft_rrb(t_stack **b)
@@ -43,7 +43,7 @@ void	ft_rrb(t_stack **b)
 	prev->next = NULL;
 	last->next = *b;
 	*b = last;
-	write (1, "rrb\n", 3);
+	write (1, "rrb\n", 4);
 }
 
 void	ft_rrr(t_stack **a, t_stack **b)
@@ -71,5 +71,5 @@ void	ft_rrr(t_stack **a, t_stack **b)
 		last->next = *b;
 		*b = last;
 	}
-	write (1, "rrr\n", 3);
+	write (1, "rrr\n", 4);
 }
