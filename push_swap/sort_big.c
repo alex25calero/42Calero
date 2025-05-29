@@ -6,37 +6,61 @@
 /*   By: alegarci <alegarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/29 11:37:02 by alegarci          #+#    #+#             */
-/*   Updated: 2025/05/29 11:37:11 by alegarci         ###   ########.fr       */
+/*   Updated: 2025/05/29 16:54:19 by alegarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #include "push_swap.h"
 
-void	ft_sort_big_list(t_node **stack_a, t_node **stack_b)
+void	ft_sort_big_list(t_stack **a, t_stack **b, int size)
 {
-	int	bit_pos;
-	int size; 
-	int count;
+	int	i;
+	int	j;
+	int	num;
+	int	max_bits;
 
-	size = ft_list_size(*stack_a);
-	bit_pos = 1;
-	while (ft_check_if_sorted(*stack_a) == false)
+	i = 0;
+	max_bits = 0;
+	while ((size - 1) >> max_bits)
+		max_bits++;
+	while (i < max_bits)
 	{
-		count = 0;
-		while (*stack_a != NULL && count++ < size)
+		j = 0;
+		while (j < size)
 		{
-			if (((*stack_a)->index & bit_pos) == 0)
-			{
-				ft_pb(stack_a, stack_b);
-			}
+			num = (*a)->index;
+			if (((num >> i) & 1) == 0)
+				ft_pb(a, b);
 			else
-				ft_ra(stack_a);
+				ft_ra(a);
+			j++;
 		}
-		while (*stack_b != NULL)
-		{
-			ft_pa(stack_a, stack_b);
-		}
-		bit_pos *= 2;
+		while (*b)
+			ft_pa(a, b);
+		i++;
 	}
 }
+
+void	assign_indices(t_stack *a)
+{
+	t_stack	*current;
+	t_stack	*compare;
+	int		index;
+
+	current = a;
+	while (current)
+	{
+		index = 0;
+		compare = a;
+		while (compare)
+		{
+			if (compare->value < current->value)
+				index++;
+			compare = compare->next;
+		}
+		current->index = index;
+		current = current->next;
+	}
+}
+

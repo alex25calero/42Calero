@@ -6,7 +6,7 @@
 /*   By: alegarci <alegarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 12:26:35 by alegarci          #+#    #+#             */
-/*   Updated: 2025/05/28 14:03:39 by alegarci         ###   ########.fr       */
+/*   Updated: 2025/05/29 16:47:15 by alegarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,8 @@ static void	ft_sort(t_stack **a, t_stack **b)
 		sort_four(a, b);
 	else if (len == 5)
 		sort_five(a, b);
-	/* else
-		ft_sort_big_list(a, b); */
+	else if (len > 5)
+		ft_sort_big_list(a, b, len);
 	else
 		return ;
 }
@@ -61,6 +61,7 @@ int	main(int argc, char **argv)
 	a = create_stack(argc, argv);
 	if (!a)
 		return (1);
+	assign_indices(a);
 	ft_sort(&a, &b);
 	clear_stack(&a);
 	clear_stack(&b);

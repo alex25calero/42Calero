@@ -6,7 +6,7 @@
 /*   By: alegarci <alegarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 13:54:05 by alegarci          #+#    #+#             */
-/*   Updated: 2025/05/28 13:57:14 by alegarci         ###   ########.fr       */
+/*   Updated: 2025/05/29 16:39:22 by alegarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,6 @@ t_stack	*create_stack(int argc, char **argv)
 		new_node = lst_new(num);
 		if (!new_node)
 			return (free_split(v), clear_stack(&a), NULL);
-		new_node->index = i - 1;
 		lst_addback(&a, new_node);
 		i++;
 	}
