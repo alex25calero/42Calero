@@ -10,3 +10,14 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "pipex.h"
+
+void pipex(char **argv, char **envp)
+{
+	int	infile_fd;
+	int	outfile_fd;
+	int	pipe_fd;
+	pid_t tpid1;
+	pid_t tpid2;
+
+}

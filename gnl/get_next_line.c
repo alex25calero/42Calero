@@ -6,7 +6,7 @@
 /*   By: alegarci <alegarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/25 13:17:35 by alegarci          #+#    #+#             */
-/*   Updated: 2025/05/06 17:29:29 by alegarci         ###   ########.fr       */
+/*   Updated: 2025/05/11 16:44:22 by alegarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,35 +107,35 @@ char	*get_next_line(int fd)
 	return (line);
 }
 
-//#include <fcntl.h>
-//#include <stdio.h>
-//int main()
-//{
-//	char *line;
-//
-//	int fd = open("test1.txt", O_RDONLY);
-//	if (fd < 0)
-//	{
-//		perror("Error opening file");
-//		return (1);
-//	}
-//	line = get_next_line(fd);
-//	if (!line)
-//	{
-//		printf("Error reading line");
-//		printf("line is NULL from: %d\n", fd);
-//		close(fd);
-//		return (1);
-//	}
-//	else
-//	{
-//		printf("%s\n",line);
-//		free(line);
-//	}
-//	while ((line = get_next_line(fd)))
-//	{
-//		printf("%s\n",line);
-//		free(line);
-//	}
-//	close(fd);
-//}
+#include <fcntl.h>
+#include <stdio.h>
+int main()
+{
+	char *line;
+
+	int fd = open("test.txt", O_RDONLY);
+	if (fd < 0)
+	{
+		perror("Error opening file");
+		return (1);
+	}
+	line = get_next_line(fd);
+	if (!line)
+	{
+		printf("Error reading line");
+		printf("line is NULL from: %d\n", fd);
+		close(fd);
+		return (1);
+	}
+	else
+	{
+		printf("%s\n",line);
+		free(line);
+	}
+	while ((line = get_next_line(fd)))
+	{
+		printf("%s\n",line);
+		free(line);
+	}
+	close(fd);
+}
