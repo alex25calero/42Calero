@@ -6,7 +6,7 @@
 /*   By: alegarci <alegarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 10:29:42 by alegarci          #+#    #+#             */
-/*   Updated: 2025/06/04 12:24:10 by alegarci         ###   ########.fr       */
+/*   Updated: 2025/06/23 14:11:49 by alegarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int	ft_format(char control, va_list args)
 	return (0);
 }
 
-/* int	ft_printf(char const *format, ...)
+int	ft_printf(char const *format, ...)
 {
 	va_list	args;
 	int		i;
@@ -64,7 +64,7 @@ int	ft_format(char control, va_list args)
 	va_end(args);
 	return (counter);
 }
-
+/*
 #include <stdio.h>
 
 int	main(void)

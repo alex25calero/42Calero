@@ -14,7 +14,7 @@
 
 int	open_infile(const char *file)
 {
-	int fd;
+	int	fd;
 
 	fd = open(file, O_RDONLY);
 	if (fd < 0)
@@ -37,7 +37,8 @@ int	open_outfile(const char *file)
 	}
 	return (fd);
 }
-void create_pipe(int pipe_fd[2])
+
+void	create_pipe(int pipe_fd[2])
 {
 	if (pipe(pipe_fd) == -1)
 	{
@@ -46,3 +47,15 @@ void create_pipe(int pipe_fd[2])
 	}
 }
 
+char	*ft_strjoin_3(const char *s1, const char *s2, const char *s3)
+{
+	char	*tmp;
+	char	*joined;
+
+	tmp = ft_strjoin(s1, s2);
+	if (!tmp)
+		return (NULL);
+	joined = ft_strjoin(tmp, s3);
+	free(tmp);
+	return (joined);
+}

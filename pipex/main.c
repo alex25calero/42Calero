@@ -6,9 +6,11 @@
 /*   By: alegarci <alegarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/04 12:25:40 by alegarci          #+#    #+#             */
-/*   Updated: 2025/06/04 12:58:11 by alegarci         ###   ########.fr       */
+/*   Updated: 2025/06/23 13:45:16 by alegarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "pipex.h"
 
 int	main(int ac, char **av, char **envp)
 {

@@ -4,7 +4,9 @@ NAME = pipex
 SRC = main.c \
 	  pipex.c \
 	  pipex_process.c \
-	  pipex_utils.c
+	  pipex_utils.c \
+	  find_path.c \
+	  ft_split_cmd.c \
 
 OBJ = $(SRC:.c=.o)
 
@@ -15,8 +17,8 @@ CFLAGS = -Wall -Wextra -Werror
 LIBFT_DIR = ./libft
 LIBFT = $(LIBFT_DIR)/libft.a
 
-PRINTFT_DIR = ./ft_print
-PRINTFT = $(PRINTFT_DIR)/ft_print.a
+PRINTFT_DIR = ./ft_printf
+PRINTFT = $(PRINTFT_DIR)/libftprintf.a
 
 INCLUDES = -I. -I$(LIBFT_DIR) -I$(PRINTFT_DIR)
 
