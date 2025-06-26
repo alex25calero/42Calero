@@ -6,7 +6,7 @@
 /*   By: alegarci <alegarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 12:18:55 by alegarci          #+#    #+#             */
-/*   Updated: 2025/04/15 19:20:28 by alegarci         ###   ########.fr       */
+/*   Updated: 2025/06/25 16:32:42 by alegarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	*ft_calloc(size_t nmem, size_t s);
 void	ft_bzero(void *s, unsigned int n);
 void	ft_striteri(char *s, void (*f)(unsigned int, char*));
 void	ft_putchar_fd(char c, int fd);
-void	ft_putstr_fd(char *s, int fd);
+void	ft_putstr_fd(const char *s, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
 void	ft_lstadd_front(t_list **lst, t_list *new);

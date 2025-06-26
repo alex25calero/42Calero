@@ -59,3 +59,13 @@ char	*ft_strjoin_3(const char *s1, const char *s2, const char *s3)
 	free(tmp);
 	return (joined);
 }
+
+
+void	command_permission_denied(const char *cmd)
+{
+	write(2, "pipex:", 6);
+	if (cmd && *cmd)
+		write(2, cmd, ft_strlen(cmd));
+	write(2, " Permission denied\n", 20);
+	exit(126);
+}

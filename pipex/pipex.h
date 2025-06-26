@@ -28,6 +28,7 @@ void	free_split(char **arr, int i);
 void	close_pipes(int pipe_fd[2]);
 void	execute_child1(char *cmd, int infile_fd, int pipe_fd[2], char **envp);
 void	execute_child2(char *cmd, int outfile_fd, int pipe_fd[2], char **envp);
+void	command_permission_denied(const char *cmd);
 int		open_infile(const char *file);
 int		open_outfile(const char *file);
 char	**ft_split_cmd(const char *s);
