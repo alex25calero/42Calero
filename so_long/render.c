@@ -6,23 +6,31 @@
 /*   By: alegarci <alegarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 12:26:40 by alegarci          #+#    #+#             */
-/*   Updated: 2025/06/30 13:55:37 by alegarci         ###   ########.fr       */
+/*   Updated: 2025/06/30 19:11:50 by alegarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-static void	draw_tile(t_game *g, char tile, int x, int y)
+void	draw_tile(t_game *game, int x, int y)
 {
-	mlx_put_image_to_window(g->mlx, g->win, g->img_floor, x, y);
+	char	tile;
+
+	tile = game->map.grid[y][x];
+	mlx_put_image_to_window(game->mlx, game->win,
+		game->img_floor, x * TILE_SIZE, y * TILE_SIZE);
 	if (tile == '1')
-		mlx_put_image_to_window(g->mlx, g->win, g->img_wall, x, y);
+		mlx_put_image_to_window(game->mlx, game->win,
+			game->img_wall, x * TILE_SIZE, y * TILE_SIZE);
 	else if (tile == 'C')
-		mlx_put_image_to_window(g->mlx, g->win, g->img_collectible, x, y);
+		mlx_put_image_to_window(game->mlx, game->win,
+			game->img_collectible, x * TILE_SIZE, y * TILE_SIZE);
 	else if (tile == 'E')
-		mlx_put_image_to_window(g->mlx, g->win, g->img_exit, x, y);
-	else if (tile == 'P')
-		mlx_put_image_to_window(g->mlx, g->win, g->img_player, x, y);
+		mlx_put_image_to_window(game->mlx, game->win,
+			game->img_exit, x * TILE_SIZE, y * TILE_SIZE);
+	if (game->player_x == x && game->player_y == y)
+		mlx_put_image_to_window(game->mlx, game->win,
+			game->img_player, x * TILE_SIZE, y * TILE_SIZE);
 }
 
 void	render_map(t_game *game)
@@ -36,10 +44,9 @@ void	render_map(t_game *game)
 		x = 0;
 		while (x < game->map.width)
 		{
-			draw_tile(game, game->map.grid[y][x],
-				x * TILE_SIZE, y * TILE_SIZE);
+			draw_tile(game, x, y);
 			x++;
 		}
 		y++;
 	}
-} 
+}

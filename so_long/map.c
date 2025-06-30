@@ -6,7 +6,7 @@
 /*   By: alegarci <alegarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 11:28:16 by alegarci          #+#    #+#             */
-/*   Updated: 2025/06/30 14:22:16 by alegarci         ###   ########.fr       */
+/*   Updated: 2025/06/30 19:07:15 by alegarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ void	flood_fill(char **map, int x, int y)
 	flood_fill(map, x, y - 1);
 }
 
-static int	has_unreachable(char **map, int height)
+int	has_unreachable(char **map, int height)
 {
 	int	i;
 	int	j;

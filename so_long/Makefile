@@ -31,7 +31,6 @@ SRCS		= main.c \
 			  controls.c \
 			  game.c \
 			  read_map.c \
-			  validate_map.c \
 			  map.c
 
 OBJS		= $(SRCS:.c=.o)

@@ -6,7 +6,7 @@
 /*   By: alegarci <alegarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 13:59:12 by alegarci          #+#    #+#             */
-/*   Updated: 2025/06/30 14:11:10 by alegarci         ###   ########.fr       */
+/*   Updated: 2025/06/30 19:19:03 by alegarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,21 @@ static void	load_image(t_game *game, void **img, char *path)
 	}
 }
 
+void	free_map(char **map)
+{
+	int	i;
+
+	i = 0;
+	if (!map)
+		return ;
+	while (map[i])
+	{
+		free(map[i]);
+		i++;
+	}
+	free(map);
+}
+
 void	load_images(t_game *game)
 {
 	load_image(game, (void **)&game->img_wall, "assets/wall.xpm");
@@ -62,4 +77,33 @@ void	load_images(t_game *game)
 		ft_putstr_fd("Error: Fallo al cargar una o más imágenes\n", 2);
 		exit(1);
 	}
+}
+
+int	close_game(void *param)
+{
+	t_game	*game;
+	t_map	*map;
+
+	game = (t_game *)param;
+	map = &game->map;
+	if (map && map->grid)
+		free_map(map->grid);
+	if (game)
+	{
+		if (game->img_collectible)
+			mlx_destroy_image(game->mlx, game->img_collectible);
+		if (game->img_exit)
+			mlx_destroy_image(game->mlx, game->img_exit);
+		if (game->img_floor)
+			mlx_destroy_image(game->mlx, game->img_floor);
+		if (game->img_player)
+			mlx_destroy_image(game->mlx, game->img_player);
+		if (game->img_wall)
+			mlx_destroy_image(game->mlx, game->img_wall);
+		if (game->win)
+			mlx_destroy_window(game->mlx, game->win);
+		if (game->mlx)
+			(mlx_destroy_display(game->mlx), free(game->mlx));
+	}
+	exit(0);
 }
