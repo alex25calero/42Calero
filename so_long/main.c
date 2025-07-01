@@ -6,7 +6,7 @@
 /*   By: alegarci <alegarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 11:44:21 by alegarci          #+#    #+#             */
-/*   Updated: 2025/06/30 19:19:37 by alegarci         ###   ########.fr       */
+/*   Updated: 2025/06/30 22:48:10 by alegarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ int	main(int argc, char **argv)
 {
 	t_game	game;
 
+	game.map.grid = NULL;
 	if (argc != 2 || !is_ber_file(argv[1]))
 	{
 		ft_putstr_fd("Error\nUso: ./so_long mapa.ber\n", 2);

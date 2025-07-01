@@ -34,7 +34,6 @@ typedef struct s_map
 
 typedef struct s_game
 {
-	
 	void	*mlx;
 	void	*win;
 	void	*img_wall;
@@ -46,7 +45,7 @@ typedef struct s_game
 	int		player_y;
 	int		s;
 	int		collected;
-	int 	on_exit;
+	int		on_exit;
 	t_map	map;
 }	t_game;
 
@@ -54,7 +53,7 @@ int		is_rectangular(char **grid, int height);
 int		is_valid_char(t_map *map);
 int		load_map(const char *filename, t_map *map);
 int		has_required_elements(t_map *map);
-int 	is_valid_wall(t_map *map);
+int		is_valid_wall(t_map *map);
 int		validate_map(t_map *map);
 int		is_playable(t_map *map);
 int		handle_key(int keycode, t_game *game);

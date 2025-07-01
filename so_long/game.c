@@ -6,7 +6,7 @@
 /*   By: alegarci <alegarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 13:59:12 by alegarci          #+#    #+#             */
-/*   Updated: 2025/06/30 19:19:03 by alegarci         ###   ########.fr       */
+/*   Updated: 2025/07/01 10:33:39 by alegarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,21 @@ void	init_window(t_game *game)
 	}
 }
 
+void	free_map(char **map)
+{
+	int	i;
+
+	i = 0;
+	if (!map)
+		return ;
+	while (map[i])
+	{
+		free(map[i]);
+		i++;
+	}
+	free(map);
+}
+
 static void	load_image(t_game *game, void **img, char *path)
 {
 	int	w;
@@ -47,21 +62,6 @@ static void	load_image(t_game *game, void **img, char *path)
 		ft_putstr_fd(path, 2);
 		ft_putchar_fd('\n', 2);
 	}
-}
-
-void	free_map(char **map)
-{
-	int	i;
-
-	i = 0;
-	if (!map)
-		return ;
-	while (map[i])
-	{
-		free(map[i]);
-		i++;
-	}
-	free(map);
 }
 
 void	load_images(t_game *game)
